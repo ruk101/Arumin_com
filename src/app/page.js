@@ -1,103 +1,121 @@
-import Image from "next/image";
+'use client'
+
+import { useState, useRef } from 'react';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [showPopup, setShowPopup] = useState(false);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const emailRef = useRef(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = emailRef.current.value;
+  
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+  
+    setError('');
+    setIsLoading(true);
+  
+    // Submit using fetch instead of form redirect
+    try {
+      await fetch("https://formsubmit.co/ajax/info@arumin.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          _captcha: false
+        })
+      });
+  
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 3000);
+      emailRef.current.value = '';
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+    }
+  
+    setIsLoading(false);
+  };
+  
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center bg-black text-white px-6 text-center relative">
+      {/* Logo */}
+      <img src="/logo1.png" alt="Arumin Logo" className="w-48 md:w-56 mb-10" />
+
+      {/* Tagline */}
+      <p className="italic text-2xl text-gray-300 mb-20">
+        Rarity, Responsibly Yours.
+      </p>
+
+      {/* Form */}
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-4xl flex flex-col md:flex-row justify-between items-start gap-8 mt-8"
+      >
+        <p className="text-gray-400 text-lg md:w-1/2">
+          Be among the first invited to experience Arumin.
+        </p>
+
+        <div className="flex flex-col gap-3 w-full md:w-1/2">
+          <input
+            ref={emailRef}
+            type="email"
+            required
+            placeholder="Your email"
+            className="border-b border-gray-600 bg-transparent px-4 pt-1 pb-0 text-base text-white placeholder:text-gray-400 italic focus:outline-none w-full"
+          />
+         <button
+  type="submit"
+  disabled={isLoading}
+  className="border border-white px-6 py-2 text-base text-white hover:bg-white hover:text-black transition disabled:opacity-50"
+>
+  {isLoading ? 'Sending…' : 'Request Access'}
+</button>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </form>
+
+      {/* Popup */}
+      {showPopup && (
+        <div className="fixed bottom-24 bg-white text-black px-6 py-3 rounded shadow-xl opacity-95 backdrop-blur-sm transition-all duration-500 animate-fade-in"
+>
+
+          ✅ Thank you! Your request has been received.
+        </div>
+      )}
+
+      {/* Footer */}
+      <footer className="absolute bottom-6 text-sm text-gray-500">
+        © Arumin. All rights reserved.
       </footer>
-    </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.4s ease-out forwards;
+        }
+      `}</style>
+    </main>
   );
 }
