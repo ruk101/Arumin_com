@@ -1,14 +1,21 @@
-import './globals.css'
+// ❌ DO NOT add 'use client' here!
+
+import './globals.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import AOSInitializer from '../components/AOSInitializer'; // New
 
 export const metadata = {
   title: "Arumin — Rarity, Responsibly Yours",
-  description: "Arumin unveils a private world of sapphires shaped by provenance and purpose, featuring a curated selection of Sri Lanka’s finest. Coming soon.",
+  description:
+    "Arumin unveils a private world of sapphires shaped by provenance and purpose, featuring a curated selection of Sri Lanka’s finest. Coming soon.",
   keywords: "Arumin, Rare, Luxury, Exclusive, Jewelry, Premium",
   authors: [{ name: "Arumin Team" }],
   creator: "Arumin",
   openGraph: {
     title: "Arumin — Rarity, Responsibly Yours",
-    description: "Arumin unveils a private world of sapphires shaped by provenance and purpose, featuring a curated selection of Sri Lanka’s finest. Coming soon.",
+    description:
+      "Arumin unveils a private world of sapphires shaped by provenance and purpose, featuring a curated selection of Sri Lanka’s finest. Coming soon.",
     url: "https://arumin.com",
     siteName: "Arumin",
     images: [
@@ -24,7 +31,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Arumin — Rarity, Responsibly Yours",
-    description: "Arumin unveils a private world of sapphires shaped by provenance and purpose, featuring a curated selection of Sri Lanka’s finest. Coming soon.",
+    description:
+      "Arumin unveils a private world of sapphires shaped by provenance and purpose, featuring a curated selection of Sri Lanka’s finest. Coming soon.",
     creator: "@arumin",
     images: ["https://arumin.com/og-image.jpg"],
   },
@@ -32,8 +40,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className="relative bg-white text-black font-serif min-h-screen">
+        <AOSInitializer /> {/* This is where we initialize AOS */}
+        <Header />
+        <main className="flex flex-col items-center justify-center min-h-screen relative">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }
