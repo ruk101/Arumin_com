@@ -33,7 +33,7 @@ export const metadata = {
     description:
       "Arumin is a global supplier of ethically sourced Ceylon sapphires, offering direct access to Sri Lanka’s finest through a transparent and responsible supply chain.",
     creator: "@arumin",
-    images: ["https://arumin.com/og-image.jpg"],
+    images: ["https://arumin.com/favimg.ico"],
   },
 };
 
