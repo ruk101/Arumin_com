@@ -13,9 +13,12 @@ const HeroParallaxSection = () => {
 
     const scrollStep = (deltaY) => {
       canScroll = false;
+
+      // ✅ Add delay depending on the step (slower when entering step 2)
+      const delay = step === 0 ? 1200 : 2500;
       setTimeout(() => {
         canScroll = true;
-      }, 1200);
+      }, delay);
 
       if (deltaY > 30) {
         if (step < 1) {
@@ -74,19 +77,18 @@ const HeroParallaxSection = () => {
     };
   }, [step, scrollLocked]);
 
-  // 👇 Observer to reset step when coming back into view
+  // ✅ Reset scroll step when section reappears
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && step >= 2) {
-  setStep(1);
-  setScrollLocked(true);
-  document.body.style.overflow = 'hidden';
+          setStep(1);
+          setScrollLocked(true);
+          document.body.style.overflow = 'hidden';
 
-  // Scroll back to top of hero section
-  sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-}
-
+          // Scroll to top of hero section
+          sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }
       },
       { threshold: 0.5 }
     );
@@ -112,7 +114,11 @@ const HeroParallaxSection = () => {
       <div className="absolute inset-0 bg-black bg-opacity-60 z-0 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-left md:text-center h-full px-4 pt-24 md:pt-0 overflow-hidden flex items-start md:items-center justify-center">
+      <div
+        className={`relative z-10 max-w-4xl mx-auto text-left md:text-center h-full px-4 overflow-hidden flex items-start md:items-center justify-center ${
+          step === 0 ? 'pt-28 md:pt-0' : 'pt-0'
+        }`}
+      >
         <div
           key={step}
           className="animate-fade-in transition-opacity duration-[2000ms] ease-in-out opacity-0 h-full flex items-center justify-center w-full"
@@ -120,7 +126,8 @@ const HeroParallaxSection = () => {
           <div className="overflow-y-auto max-h-[90vh] w-full space-y-6 pb-10 px-2">
             {step === 0 && (
               <p className="font-garamond text-lg md:text-2xl leading-relaxed font-light">
-                Arumin offers a selection of high-quality Ceylon sapphires, sourced in accordance with strict ethical standards and backed by full traceability.
+                At the core of Arumin is a curated selection of some of the finest Ceylon sapphires in the world,
+                sourced with integrity, cut with precision, and offered with full traceability.
               </p>
             )}
 
@@ -158,7 +165,7 @@ const HeroParallaxSection = () => {
         </div>
       </div>
 
-      {/* Animation */}
+      {/* Fade animation */}
       <style jsx>{`
         @keyframes fade-in {
           from {
