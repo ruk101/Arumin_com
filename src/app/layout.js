@@ -6,21 +6,21 @@ import Footer from '../components/Footer';
 import AOSInitializer from '../components/AOSInitializer'; // New
 
 export const metadata = {
-  title: "Arumin — Rarity, Responsibly Yours",
+  title: "Arumin",
   description:
-    "Arumin unveils a private world of sapphires shaped by provenance and purpose, featuring a curated selection of Sri Lanka’s finest. Coming soon.",
+    "Arumin is a global supplier of ethically sourced Ceylon sapphires, offering direct access to Sri Lanka’s finest through a transparent and responsible supply chain.",
   keywords: "Arumin, Rare, Luxury, Exclusive, Jewelry, Premium",
   authors: [{ name: "Arumin Team" }],
   creator: "Arumin",
   openGraph: {
-    title: "Arumin — Rarity, Responsibly Yours",
+    title: "Arumin",
     description:
-      "Arumin unveils a private world of sapphires shaped by provenance and purpose, featuring a curated selection of Sri Lanka’s finest. Coming soon.",
+      "Arumin is a global supplier of ethically sourced Ceylon sapphires, offering direct access to Sri Lanka’s finest through a transparent and responsible supply chain.",
     url: "https://arumin.com",
     siteName: "Arumin",
     images: [
       {
-        url: "https://arumin.com/favimg.ico",
+        url: "https://arumin.com/favimg.png",
         width: 1200,
         height: 630,
       },
@@ -33,7 +33,7 @@ export const metadata = {
     description:
       "Arumin is a global supplier of ethically sourced Ceylon sapphires, offering direct access to Sri Lanka’s finest through a transparent and responsible supply chain.",
     creator: "@arumin",
-    images: ["https://arumin.com/favimg.ico"],
+    images: ["https://arumin.com/favimg.png"],
   },
 };
 
