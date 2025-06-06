@@ -29,9 +29,6 @@ const EthicalSourcingSection = () => {
           </div>
           <div className="space-y-6" data-aos="fade" data-aos-delay="300">
             <p>
-              Limited traceability and little value returning to the source.
-            </p>
-            <p>
               At Arumin, we follow a direct-from-source model. By sourcing from our own mines and operating from Sri Lanka, we ensure that the country of origin directly benefits from the true value of its gemstones.
             </p>
           </div>

@@ -19,7 +19,7 @@ export default function Home() {
       />
 
       {/* Content Area */}
-      <div className="z-20 animate-fadeInSlow">
+      <div className="z-20" data-aos='fade'>
 
         {/* Desktop Logo & Text */}
         <div className="hidden md:block">
@@ -41,11 +41,11 @@ export default function Home() {
           <Image
             src="/logo1.png"
             alt="Arumin Logo"
-            width={120}
-            height={120}
+            width={150}
+            height={150}
             className="mx-auto mb-3 transition duration-500 ease-in-out hover:drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
           />
-          <p className="text-xs text-white leading-snug max-w-xs mx-auto mt-1 mb-4">
+          <p className="text-xs text-white leading-snug max-w-sm mx-auto mt-1 mb-4">
             A global supplier of ethical Ceylon sapphires, <br />
             direct from the source
           </p>

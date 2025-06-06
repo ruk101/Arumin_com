@@ -1,9 +1,10 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 const HeroParallaxSection = () => {
   const [step, setStep] = useState(0);
   const [scrollLocked, setScrollLocked] = useState(true);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     let canScroll = true;
@@ -17,11 +18,20 @@ const HeroParallaxSection = () => {
       }, 1200);
 
       if (deltaY > 30) {
-        if (step < 2) {
+        if (step < 1) {
           setStep((prev) => prev + 1);
         } else {
+          setStep(2); // still needed so scroll-unlock logic works
           setScrollLocked(false);
           document.body.style.overflow = 'auto';
+
+          // Scroll to the next section
+          const nextElement = sectionRef.current?.nextElementSibling;
+          if (nextElement) {
+            setTimeout(() => {
+              nextElement.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+          }
         }
       } else if (deltaY < -30 && step > 0) {
         setStep((prev) => prev - 1);
@@ -67,8 +77,9 @@ const HeroParallaxSection = () => {
 
   return (
     <section
+      ref={sectionRef}
       className="relative w-full bg-fixed bg-center bg-cover text-white px-6 md:px-20 h-screen"
-      style={{ backgroundImage: "url('/AboutUs-.jpg')" }}
+      style={{ backgroundImage: "url('/AboutUs-one.jpg')" }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-60 z-0 pointer-events-none" />
@@ -87,7 +98,7 @@ const HeroParallaxSection = () => {
               </p>
             )}
 
-            {step === 1 && (
+            {step >= 1 && (
               <>
                 <div className="space-y-4 text-sm md:text-base leading-relaxed">
                   <p>
@@ -121,7 +132,7 @@ const HeroParallaxSection = () => {
         </div>
       </div>
 
-      {/* Animation */}
+      {/* Fade animation */}
       <style jsx>{`
         @keyframes fade-in {
           from {

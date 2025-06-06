@@ -30,9 +30,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arumin — Rarity, Responsibly Yours",
     description:
-      "Arumin unveils a private world of sapphires shaped by provenance and purpose, featuring a curated selection of Sri Lanka’s finest. Coming soon.",
+      "Arumin is a global supplier of ethically sourced Ceylon sapphires, offering direct access to Sri Lanka’s finest through a transparent and responsible supply chain.",
     creator: "@arumin",
     images: ["https://arumin.com/og-image.jpg"],
   },
