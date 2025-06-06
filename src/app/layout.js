@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "Arumin",
     images: [
       {
-        url: "https://arumin.com/og-image.png",
+        url: "https://arumin.com/favimg.ico",
         width: 1200,
         height: 630,
       },
