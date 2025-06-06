@@ -1,9 +1,7 @@
-// ❌ DO NOT add 'use client' here!
-
 import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import AOSInitializer from '../components/AOSInitializer'; // New
+import AOSInitializer from '../components/AOSInitializer';
 
 export const metadata = {
   title: "Arumin",
@@ -20,7 +18,7 @@ export const metadata = {
     siteName: "Arumin",
     images: [
       {
-        url: "https://arumin.com/favimg.png",
+        url: "https://arumin.com/favimg.png", // ✅ correct file used
         width: 1200,
         height: 630,
       },
@@ -35,13 +33,17 @@ export const metadata = {
     creator: "@arumin",
     images: ["https://arumin.com/favimg.png"],
   },
+  icons: {
+    icon: '/favimg.ico', // ✅ update this from favicon.ico
+    apple: '/favimg.png', // ✅ optional but fine as fallback
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className="relative bg-white text-black font-serif min-h-screen">
-        <AOSInitializer /> {/* This is where we initialize AOS */}
+        <AOSInitializer />
         <Header />
         <main className="flex flex-col items-center justify-center min-h-screen relative">
           {children}
