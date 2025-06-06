@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const TraceabilityEnvironmentSection = () => {
   return (
-    <section className="w-full bg-white pt-24 px-6 md:px-20 mb-30" data-aos="fade">
+    <section className="w-full bg-white pt-24 px-6 md:px-20 mb-60" data-aos="fade">
       <div className=" mx-auto">
 
         {/* Full-width Image */}

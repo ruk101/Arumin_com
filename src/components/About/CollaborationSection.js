@@ -27,8 +27,8 @@ const CollaborationSection = () => {
           Collaboration for Progress
         </h3>
         <p className="text-base md:text-lg mb-4" data-aos="fade" data-aos-delay="200">
-          Arumin works in close partnership with the Government of Sri Lanka to strengthen the sapphire trade
-          and ensure that more of its true value remains within the country.
+          Arumin works in close partnership with local stakeholders in Sri Lanka to strengthen the sapphire trade and ensure that more of its true value remains within the country.
+
         </p>
         <p className="text-base md:text-lg" data-aos="fade" data-aos-delay="200">
           Our efforts focus on setting higher standards, promoting ethical sourcing, and building lasting global recognition
