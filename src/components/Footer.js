@@ -12,7 +12,7 @@ export default function Footer() {
         isHome ? 'text-white' : 'text-black'
       }`}
     >
-      © 2024 Arumin
+      © 2025 Arumin
     </footer>
   );
 }
