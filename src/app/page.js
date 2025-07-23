@@ -37,19 +37,20 @@ export default function Home() {
         </div>
 
         {/* Mobile Logo & Text */}
-        <div className="block md:hidden">
-          <Image
-            src="/logo1.png"
-            alt="Arumin Logo"
-            width={150}
-            height={150}
-            className="mx-auto mb-3 transition duration-500 ease-in-out hover:drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
-          />
-          <p className="text-xs text-white leading-snug max-w-sm mx-auto mt-1 mb-4">
-            A global supplier of ethical Ceylon sapphires, <br />
-            direct from the source
-          </p>
-        </div>
+<div className="block md:hidden">
+  <Image
+    src="/logo1.png"
+    alt="Arumin Logo"
+    width={180}  // ⬆️ Increased from 150
+    height={180}
+    className="mx-auto mb-4 transition duration-500 ease-in-out hover:drop-shadow-[0_0_20px_rgba(0,0,0,0.35)]"
+  />
+  <p className="text-sm text-white leading-normal max-w-xs mx-auto mt-2 mb-5">  {/* ⬆️ text-sm instead of text-xs */}
+    A global supplier of ethical Ceylon sapphires, <br />
+    direct from the source
+  </p>
+</div>
+
 
        {/* Desktop Button */}
 <div className="relative w-full items-center justify-center my-6 hidden md:flex">
