@@ -8,18 +8,18 @@ const CollaborationSection = () => {
 
       {/* Inset image with fade-in effect */}
       <div
-        className="w-full max-w-full mx-auto h-[600px] relative mb-20 rounded overflow-hidden "
-        data-aos="fade"
-      >
-        <Image
-  src="/AboutUs-two.jpg"
-  alt="Collaboration Image"
-  fill
-  className="object-cover object-[35%_5%] md:object-center"
-  priority
-/>
+  className="w-full max-w-full mx-auto h-[350px] md:h-[600px] relative mb-20 rounded overflow-hidden"
+  data-aos="fade"
+>
+  <Image
+    src="/AboutUs-two.jpg"
+    alt="Collaboration Image"
+    fill
+    className="object-cover object-[35%_5%] md:object-center"
+    priority
+  />
+</div>
 
-      </div>
 
       {/* Text Content */}
       <div className="text-left md:text-center max-w-5xl mx-auto mt-24" data-aos="fade" data-aos-delay="200">
