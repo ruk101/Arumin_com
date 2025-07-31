@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Sustainability | Arumin",
+  description:
+    "A framework grounded in impact, environmental responsibility, and value retained at origin.",
+};
+
 import HeroSection from "@/components/Sustainability/HeroSection";
 import EthicalSourcingSection from "@/components/Sustainability/EthicalSourcingSection";
 import BeautifulMinesSection from "@/components/Sustainability/BeautifulMinesSection";
@@ -8,7 +14,7 @@ export default function SustainabilityPage() {
     <main>
       <HeroSection />
       <EthicalSourcingSection />
-      <BeautifulMinesSection/>
+      <BeautifulMinesSection />
       <TraceabilityEnvironmentSection />
     </main>
   );
