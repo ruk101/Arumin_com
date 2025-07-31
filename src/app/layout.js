@@ -42,6 +42,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
+      <head>
+        <link rel="canonical" href="https://arumin.com" />
+      </head>
       <body className="relative bg-white text-black font-serif min-h-screen">
         <AOSInitializer />
         <Header />
