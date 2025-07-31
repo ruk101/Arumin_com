@@ -9,7 +9,7 @@ const BeautifulMinesSection = () => {
         
         {/* Full-width Image with spacing */}
         <div
-          className="w-full h-[300px] md:h-[500px] relative mb-20 rounded overflow-hidden"
+          className="w-full h-[350px] md:h-[500px] relative mb-20 rounded overflow-hidden"
           data-aos="fade"
           data-aos-delay="100"
         >
