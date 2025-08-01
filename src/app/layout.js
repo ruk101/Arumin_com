@@ -44,6 +44,8 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning={true}>
       <head>
         <link rel="canonical" href="https://arumin.com" />
+        <link rel="icon" href="/favimg.ico" />
+  <link rel="apple-touch-icon" href="/favimg.png" />
       </head>
       <body className="relative bg-white text-black font-serif min-h-screen">
         <AOSInitializer />
