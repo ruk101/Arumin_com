@@ -46,6 +46,9 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href="https://arumin.com" />
         <link rel="icon" href="/favimg.ico" />
   <link rel="apple-touch-icon" href="/favimg.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favimg.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favimg.png" />
+
       </head>
       <body className="relative bg-white text-black font-serif min-h-screen">
         <AOSInitializer />
